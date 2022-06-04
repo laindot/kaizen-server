@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const cookieSession = require('cookie-session');
 const session = require('express-session');
 const passport = require('passport');
 const keys = require('./config/keys');
@@ -13,16 +12,13 @@ const app = express();
 
 app.use(
   session({
-    keys: [keys.cookieKey],
-    secret: keys.cookieSecret,
-    resave: false,
+    secret: keys.sessionSecret,
     saveUninitialized: true,
-    cookie: {
-      maxAge: 30 * 24 * 60 * 60 * 1000,
-      secure: false, // this should be true only when you don't want to show it for security reason
-    },
+    cookie: { maxAge: 1000 * 60 * 60 * 24 },
+    resave: false,
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
