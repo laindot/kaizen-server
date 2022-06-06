@@ -18,10 +18,10 @@ class Header extends Component {
         );
       default:
         return [
-          <li>
+          <li key='1'>
             <Payments />
           </li>,
-          <li>
+          <li key='2'>
             <a className='red lighten-2' href='/api/logout'>
               Logout
             </a>
@@ -32,7 +32,7 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className='white'>
+      <nav className=''>
         <div className='nav-wrapper'>
           <Link
             to={this.props.auth ? '/surveys' : '/'}
