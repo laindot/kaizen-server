@@ -11,9 +11,7 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a className='red lighten-2' href='/auth/google'>
-              Login With Google
-            </a>
+            <a href='/auth/google'>Login With Google</a>
           </li>
         );
       default:
@@ -21,10 +19,11 @@ class Header extends Component {
           <li key='1'>
             <Payments />
           </li>,
+          <li key='3' style={{ margin: '0 10px' }}>
+            Credits: {this.props.auth.credits}
+          </li>,
           <li key='2'>
-            <a className='red lighten-2' href='/api/logout'>
-              Logout
-            </a>
+            <a href='/api/logout'>Logout</a>
           </li>,
         ];
     }
@@ -37,6 +36,7 @@ class Header extends Component {
           <Link
             to={this.props.auth ? '/surveys' : '/'}
             className='brand-logo left'
+            style={{ margin: '0 10px' }}
           >
             <img
               src='logo.png'
