@@ -21,7 +21,7 @@ class SurveyForm extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={{marginTop: '20px'}}>
         <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
           <div style={{ marginTop: '20px' }}>
